@@ -91,10 +91,16 @@ h1 {
     margin: 5px 0;
 }
 
+
 #btnBeginner,
-#btnAdvanced {
-    font-size: smaller;
+#btnAdvanced,
+#btnPlay {
+    font-size: small;
     font-family: 'Open Sans Condensed', sans-serif;
+    background: linear-gradient(to right, #EECDA3, #EF629F);
+    color: white;
+    padding: 5px;
+    margin: 3px;
 }
 
 #videos {

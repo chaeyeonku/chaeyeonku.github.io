@@ -188,8 +188,8 @@ btnBeg.onclick = function () {
     videos.style.display = "block";
     video3.style.display = "none";
     video2.style.display = "block";
-    btnBeg.style.backgroundColor = "darkcyan";
-    btnAdv.style.backgroundColor = "initial";
+    btnBeg.style.color = 'black';
+    btnAdv.style.color = "white";
     video3.load();
 };
 
@@ -197,8 +197,8 @@ btnAdv.onclick = function() {
     videos.style.display = "block";
     video2.style.display = "none";
     video3.style.display = "block";
-    btnAdv.style.backgroundColor = "darkcyan";
-    btnBeg.style.backgroundColor = "initial";
+    btnAdv.style.color = 'black';
+    btnBeg.style.color = "white";
     video2.load();
 };
 
