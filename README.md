@@ -1,2 +1,2 @@
 # chaeyeonku.github.io
-My Portfolio: this is my github portfolio that introduces my technical projects completed so far.
+This is my GitHub portfoli source code. By visiting chaeyeonku.github.io, you can take a look at some of my personal project descriptions and video demos.
