@@ -1,7 +1,3 @@
-// const aboutMe = document.querySelector('.about-me');
-// const circle = document.querySelector('.lds-ripple');
-// const background = document.querySelector('.background');
-
 var canvas = document.querySelector('canvas');
 var projects = document.querySelector('#projects');
 var item3 = document.querySelector('#project-item3');
@@ -249,7 +245,7 @@ btnPlay.addEventListener('click', e => {
     graphics2.style.display = 'block';
 
     c = canvasSF.getContext('2d');
-    particles = [];
+    circles = [];
     mainIsOn = false;
     init2(canvasSF.width / 2, canvasSF.height / 2);
     animate2();
@@ -281,17 +277,16 @@ intro.addEventListener('click', e => {
 
 var c = canvas.getContext('2d');
 
-function Particle(x, y, centerX, centerY) {
+function Circle(x, y) {
     this.x = x;
     this.y = y;
-    // #F8E168
+    this.centerX = x;
+    this.centerY = y;
     this.color = '#FFE047';
     this.radius = 5 + Math.random() * 10;
     this.radians = Math.random() * Math.PI * 2;
     this.velocity = 0.001;
-    this.distanceFromCenter = (canvas.width / 7)+ (canvas.width / 3) * Math.random();
-    this.centerX = centerX;
-    this.centerY = centerY;
+    this.dist = (canvas.width / 7)+ (canvas.width / 3) * Math.random();
 
     // Resize Radius * distance for mobile users
     if (mobileview) {
@@ -300,21 +295,22 @@ function Particle(x, y, centerX, centerY) {
     }
 
     this.update = () => {
-        // Move the point over time
+        // Rotating around the center over time
         this.radians += this.velocity;
-        this.x = this.centerX + Math.cos(this.radians) * this.distanceFromCenter;
-        this.y = this.centerY + Math.sin(this.radians) * this.distanceFromCenter;
+        this.x = this.centerX + Math.cos(this.radians) * this.dist;
+        this.y = this.centerY + Math.sin(this.radians) * this.dist;
         this.draw();
     }
 
     this.draw = () => {
-        // Center Particle
+        // Center circle
         c.beginPath();
         c.arc(canvas.width / 2, canvas.height / 2, 40, 0, Math.PI *2 , false);
         c.fillStyle = this.color;
         c.fill();
         c.closePath();
 
+        // This circle
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI *2 , false);
         c.fillStyle = this.color;
@@ -332,15 +328,15 @@ function Text(x, y, rad, text) {
     this.y = y;
     this.radians = rad;
     this.velocity = 0.001;
-    this.distanceFromCenter = (canvas.width / 3);
+    this.dist = (canvas.width / 3);
     this.centerX = canvas.width / 2;
     this.centerY = canvas.height / 2;
 
     this.update = () => {
         // Move the point over time
         this.radians += this.velocity;
-        this.x = this.centerX + Math.cos(this.radians) * this.distanceFromCenter;
-        this.y = this.centerY + Math.sin(this.radians) * this.distanceFromCenter;
+        this.x = this.centerX + Math.cos(this.radians) * this.dist;
+        this.y = this.centerY + Math.sin(this.radians) * this.dist;
         this.draw();
     }
 
@@ -350,20 +346,19 @@ function Text(x, y, rad, text) {
     }
 }
 
-let particles;
-particles = [];
-function init(x, y, centerX, centerY) {
-    
+let circles;
+circles = [];
+function init(x, y) {
     for (var i=0; i < 10; i++) {
-        particles.push(new Particle(x, y, centerX, centerY));
+        circles.push(new Circle(x, y));
     }
 }
 
 let texts;
 texts = [];
-function initText(x, y) {
-    var textX = canvas.width / 2;
-    var textY = canvas.height / 2;
+function initText(w, h) {
+    var textX = w;
+    var textY = h;
     if (mobileview) {
         textX = canvas.width / 5;
         textY = canvas.height / 4;
@@ -380,8 +375,8 @@ function animate() {
         requestAnimationFrame(animate);
         if (!stopRotation) {
             c.clearRect(0,0, innerWidth, innerHeight);
-            particles.forEach(particle => {
-                particle.update();
+            circles.forEach(circle => {
+                circle.update();
             });
             texts.forEach(text => {
                 text.update();
@@ -399,7 +394,7 @@ function center() {
 }
 
 
-init(canvas.width / 2, canvas.height / 2, canvas.width / 2, canvas.height / 2);
+init(canvas.width / 2, canvas.height / 2);
 initText(canvas.width / 2, canvas.height / 2);
 animate();
 
@@ -430,13 +425,13 @@ canvasSF.addEventListener('click', e => {
 
 pause.addEventListener('click', e => {
     keepRotate = !keepRotate;
-    particles.forEach(particle => {
+    circles.forEach(circle => {
         if (keepRotate) {
-            particle.reduce();
+            circle.reduce();
         } else {
-            particle.enlarge();
+            circle.enlarge();
         }
-        particle.update();
+        circle.update();
     });
 });
 
@@ -446,7 +441,7 @@ fall.addEventListener('click', e => {
 
 
 reset.addEventListener('click', e => {
-    particles = [];
+    circles = [];
     keepRotate = true;
     floating = true;
     c.clearRect(0,0, innerWidth, innerHeight);
@@ -472,11 +467,8 @@ help.addEventListener('click', e => {
 });
 
 
-// Objects
-// Prevent Overlapping
-var locations = [];
-
-function ParticleSF(x, y, radians, dist, type) {
+// Object
+function CircleSF(x, y, radians, dist, type) {
     this.x = x;
     this.y = y;
     this.centerX = x;
@@ -489,14 +481,13 @@ function ParticleSF(x, y, radians, dist, type) {
     }
     this.radians = radians;
     this.velocity = 0.01;
-    this.distanceFromCenter = dist;
+    this.dist = dist;
     this.shape = Math.random() * Math.PI * 2;
 
     this.update = () => {
-        // Move the point over time
         this.radians += this.velocity;
-        this.x = this.centerX + Math.cos(this.radians) * this.distanceFromCenter;
-        this.y = this.centerY + Math.sin(this.radians) * this.distanceFromCenter;
+        this.x = this.centerX + Math.cos(this.radians) * this.dist;
+        this.y = this.centerY + Math.sin(this.radians) * this.dist;
         this.draw();
     }
 
@@ -509,10 +500,7 @@ function ParticleSF(x, y, radians, dist, type) {
         c.lineTo(this.centerX, this.centerY);
 
         c.moveTo(this.x, this.y);
-        //c.lineTo(this.x - 10, this.y);
-        //c.arc(this.x - 10, this.y, 1, 0,  Math.PI * 2, false);
-        //c.rect(this.x - 10, this.y, 1, 1);
-        c.strokeStyle = 'white';
+        c.strokeStyle = this.color;
         c.stroke();
         c.closePath();
     }
@@ -527,15 +515,14 @@ function ParticleSF(x, y, radians, dist, type) {
 
     this.fall = () => {
         this.radians += this.velocity;
-        this.x = this.centerX + Math.cos(this.radians) * this.distanceFromCenter;
-        this.y = this.centerY + Math.sin(this.radians) * this.distanceFromCenter;
+        this.x = this.centerX + Math.cos(this.radians) * this.dist;
+        this.y = this.centerY + Math.sin(this.radians) * this.dist;
         this.y += 1;
         this.centerY += 1;
         this.draw();
     }
 
 }
-
 
 
 // Implementation
@@ -553,7 +540,7 @@ function init2(x, y) {
                 } else {
                     dist1 = dist;
                 } 
-                particles.push(new ParticleSF(x, y, i * Math.PI * 0.0625, dist1, "a"));
+                circles.push(new CircleSF(x, y, i * Math.PI * 0.0625, dist1, "a"));
             }            
             break;
         case 1:
@@ -564,7 +551,7 @@ function init2(x, y) {
                 } else {
                     dist2 = dist / 2;
                 }
-                particles.push(new ParticleSF(x, y, i * Math.PI / 6, dist2, "b"));
+                circles.push(new CircleSF(x, y, i * Math.PI / 6, dist2, "b"));
             }
             break;
         case 2:
@@ -575,7 +562,7 @@ function init2(x, y) {
                 } else {
                     dist3 = dist / 2;
                 }
-                particles.push(new ParticleSF(x, y, i * Math.PI / 12, dist3, "c"));
+                circles.push(new CircleSF(x, y, i * Math.PI / 12, dist3, "c"));
             }
             break;
         case 3:
@@ -588,12 +575,12 @@ function init2(x, y) {
                 } else {
                     dist4 = 0.9 * dist;
                 }
-                particles.push(new ParticleSF(x, y, i * Math.PI / 12, dist4, "d"));
+                circles.push(new CircleSF(x, y, i * Math.PI / 12, dist4, "d"));
             }
             break;
         case 4:
             for (var i=0; i < 8; i ++) {
-                particles.push(new ParticleSF(x, y, i * Math.PI * 0.25, dist, "e"));
+                circles.push(new CircleSF(x, y, i * Math.PI * 0.25, dist, "e"));
             }
     }
     
@@ -605,11 +592,11 @@ function animate2() {
         requestAnimationFrame(animate2);
         if (keepRotate) {
             c.clearRect(0,0, innerWidth, innerHeight);
-            particles.forEach(particle => {
+            circles.forEach(circle => {
                 if (floating) {
-                    particle.update();
+                    circle.update();
                 } else {
-                    particle.fall();
+                    circle.fall();
                 }
             });
         }
