@@ -1,0 +1,238 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: "Open Sans Condensed", sans-serif;
+    height: 100vh;
+    /* background: linear-gradient(to bottom right, #C6FFDD, #FBD786 50%, #f7797d); */
+    /*background: linear-gradient(to bottom right, #43C6AC, #191654);*/
+    background: linear-gradient(to bottom right, #74ebd5, #ACB6E5);
+    margin: 0;
+}
+
+h1 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+#name h3 {
+    max-width: 100px;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+
+#container {
+    position: relative;
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+#graphics {
+    height: 100%;
+    position: relative;
+}
+
+#graphics canvas {
+    position: absolute;
+    background: #272622;
+}
+
+#personal-info {
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    position: relative;
+    color: white;
+}
+
+#projects {
+    top: 5%;
+    left: 55%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 1px;
+    row-gap: 1px;
+    align-items: center;
+}
+
+#project-note {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+#github {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+
+#icon-ref {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
+    color: rgb(72, 71, 71);
+}
+
+#smallTitle {
+    font-size: 9px;
+    margin: 5px 0;
+}
+
+#smallBody {
+    font-size: 5px;
+    margin: 5px 0;
+}
+
+#btnBeginner,
+#btnAdvanced {
+    font-size: smaller;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#videos {
+    display: none;
+}
+
+#desc1,
+#desc2,
+#desc3,
+#desc4,
+#desc {
+    font-size: 13px;
+    text-align: left;
+    margin: 5px 0;
+}
+
+#tech1,
+#tech2,
+#tech3,
+#tech4,
+#tech {
+    font-size: 13px;
+    color: #2565ae;
+    text-align: left;
+    margin: 5px 0;
+}
+
+#desc,
+#tech {
+    font-size: 15px;
+}
+
+#project-note {
+    font-size: 20px;
+    font-style: italic;
+    background: white;
+}
+
+
+#project-item1,
+#project-item2,
+#project-item3,
+#project-item4 {
+    max-width: 70%;
+    min-height: 80%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    background: white;
+    text-align: center;
+}
+
+#show1,
+#show2,
+#show3,
+#show4 {
+    display: none;
+}
+
+
+.background {
+    background-color: white;
+    display: none;
+}
+
+
+.expense {
+    width: 5rem;
+    height: 5rem;
+    background-color: burlywood;
+    display: none;
+}
+
+
+/* --------------------- */
+/* Mobile View Box for details display */
+#mobile-box {
+    display: none;
+    width: 90%;
+    height: 80%;
+    top: 10%;
+    position: relative;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1;
+}
+
+#mobile1,
+#mobile2,
+#mobile3 {
+    display: none;
+    align-items: center;
+}
+
+
+
+/* --------------------- */
+/* For SNOWFLAKES CANVAS */
+
+#graphics2 {
+    display: none;
+    height: 100%;
+    position: relative;
+}
+
+#graphics2 canvas {
+    position: absolute;
+    border: 1px solid black;
+    background: linear-gradient(to bottom, #d8b5ff, #1eae98);
+}
+
+#buttons button {
+    position: relative;
+    border: 1px solid black;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: larger;
+}
+
+#help {
+    border-radius: 50%;
+    color: white;
+    background: black;
+}
+
+#buttons div {
+    position: relative;
+}
+
+#instructions {
+    position: relative;
+    background: black;
+    border: 1px solid white;
+    color: white;
+    width: fit-content;
+}
