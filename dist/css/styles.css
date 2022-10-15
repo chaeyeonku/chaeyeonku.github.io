@@ -11476,7 +11476,7 @@ footer.footer .social-link:hover {
   height: auto;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), url("../assets/img/bg-lemon.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11517,7 +11517,7 @@ footer.footer .social-link:hover {
   margin: auto 2rem 2rem;
 }
 .portfolio-item .caption .caption-content h2, .portfolio-item .caption .caption-content .h2 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 .portfolio-item .caption .caption-content p {
@@ -11569,4 +11569,34 @@ footer.footer .social-link:hover {
   line-height: 7.5rem;
   font-size: 2.25rem;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  border-radius: 50%;
+  height: 10rem;
+  background-color: white;
+}
+
+.company {
+  font-weight: 400;
+}
+
+.social-link {
+  display: block;
+  text-decoration: none;
+  height: 2rem;
+  width: 2rem;
+  line-height: 2rem;
+  font-size: 1rem;
+  background-color: #1D809F;
+  transition: background-color 0.15s ease-in-out;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.social-link:hover {
+  background-color: #155d74;
+  text-decoration: none;
+}
+
+.btn-skill {
+  margin-bottom: 0.125rem;
 }

@@ -78,3 +78,7 @@ function fadeIn(el, display) {
         }
     })();
 };
+
+function showPortfolioVideo(title) {
+    console.log(title);
+}
