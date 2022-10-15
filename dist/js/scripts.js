@@ -79,6 +79,24 @@ function fadeIn(el, display) {
     })();
 };
 
+// my variables
+var expenseVideo = document.getElementById('expense-video');
+var videoDiv = document.getElementById('portfolio-videos');
+var portfolioBoxes = document.getElementById('portfolio-boxes');
+
+// my functions
 function showPortfolioVideo(title) {
-    console.log(title);
+    videoDiv.style.display = "block";
+    portfolioBoxes.style.display = "none";
+
+    // console.log(title);
+    if (title === "expense") {
+        expenseVideo.style.display = "block";
+    }
+}
+
+function hidePortfolioVideo() {
+    expenseVideo.style.display = "none";
+    videoDiv.style.display = "none";
+    portfolioBoxes.style.display = "flex";
 }

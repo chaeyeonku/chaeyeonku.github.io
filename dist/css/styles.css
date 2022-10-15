@@ -11600,3 +11600,11 @@ footer.footer .social-link:hover {
 .btn-skill {
   margin-bottom: 0.125rem;
 }
+
+.portfolio-videos {
+  display: none;
+}
+
+.portolio-videos video {
+  display: none;
+}
