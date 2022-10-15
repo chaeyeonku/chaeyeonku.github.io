@@ -81,11 +81,11 @@
                         <!-- <p class="lead mb-5">
                             Languages
                         </p> -->
-                        <a class="btn btn-warning btn-skill" href="#!">JavaScript</a>
-                        <a class="btn btn-warning btn-skill" href="#!">TypeScript</a>
-                        <a class="btn btn-warning btn-skill" href="#!">HTML5</a>
-                        <a class="btn btn-warning btn-skill" href="#!">CSS</a>
-                        <a class="btn btn-warning btn-skill" href="#!">React.js</a>
+                        <a class="btn btn-warning btn-skill">JavaScript</a>
+                        <a class="btn btn-warning btn-skill">TypeScript</a>
+                        <a class="btn btn-warning btn-skill">HTML5</a>
+                        <a class="btn btn-warning btn-skill">CSS</a>
+                        <a class="btn btn-warning btn-skill">React.js</a>
                         <!-- <a class="btn btn-dark btn-xl" href="#services">What We Offer</a> -->
                 
                     </div>
@@ -95,13 +95,13 @@
                         <!-- <p class="lead mb-5">
                             Languages
                         </p> -->
-                        <a class="btn btn-dark btn-skill" href="#!">Python</a>
-                        <a class="btn btn-dark btn-skill" href="#!">Java</a>
-                        <a class="btn btn-dark btn-skill" href="#!">C</a>
-                        <a class="btn btn-dark btn-skill" href="#!">C++</a>
-                        <a class="btn btn-dark btn-skill" href="#!">Bash</a>
-                        <a class="btn btn-dark btn-skill" href="#!">Flask</a>
-                        <a class="btn btn-dark btn-skill" href="#!">Node.js</a>
+                        <a class="btn btn-dark btn-skill">Python</a>
+                        <a class="btn btn-dark btn-skill">Java</a>
+                        <a class="btn btn-dark btn-skill">C</a>
+                        <a class="btn btn-dark btn-skill">C++</a>
+                        <a class="btn btn-dark btn-skill">Bash</a>
+                        <a class="btn btn-dark btn-skill">Flask</a>
+                        <a class="btn btn-dark btn-skill">Node.js</a>
                         <!-- <a class="btn btn-dark btn-xl" href="#services">What We Offer</a> -->
                 
                     </div>
@@ -111,12 +111,12 @@
                         <!-- <p class="lead mb-5">
                             Languages
                         </p> -->
-                        <a class="btn btn-outline-primary btn-skill" href="#!">MSSQL</a>
-                        <a class="btn btn-outline-primary btn-skill" href="#!">SSMS</a>
-                        <a class="btn btn-outline-primary btn-skill" href="#!">PostgreSQL</a>
-                        <a class="btn btn-outline-primary btn-skill" href="#!">Power BI</a>
-                        <a class="btn btn-outline-primary btn-skill" href="#!">Tableau</a>
-                        <a class="btn btn-outline-primary btn-skill" href="#!">R</a>
+                        <a class="btn btn-outline-primary btn-skill">MSSQL</a>
+                        <a class="btn btn-outline-primary btn-skill">SSMS</a>
+                        <a class="btn btn-outline-primary btn-skill">PostgreSQL</a>
+                        <a class="btn btn-outline-primary btn-skill">Power BI</a>
+                        <a class="btn btn-outline-primary btn-skill">Tableau</a>
+                        <a class="btn btn-outline-primary btn-skill">R</a>
                         <!-- <a class="btn btn-dark btn-xl" href="#services">What We Offer</a> -->
                 
                     </div>
@@ -185,13 +185,15 @@
                 </div>
                 <!-- Portfolio videos-->
                 <div class="portfolio-videos" id="portfolio-videos">
-                    <video id="expense-video" src="assets/videos/expense-tracker.mov" width="50%" controls></video>
-                    <button class="btn btn-dark btn-xl" id="btn-close" onclick="hidePortfolioVideo()">Close</a>
+                    <video id="expense-video" src="assets/videos/expense-tracker.mov" width="60%" controls></video>
+                    <video id="cardgame-video-beg" src="assets/videos/cardgame-beginner.mp4" width="60%" controls></video>
+                    <video id="cardgame-video-adv" src="assets/videos/cardgame-advanced.mov" width="60%" controls></video>
+                    <button class="btn btn-dark btn-xl" id="btn-close" onclick="hidePortfolioVideo()">Close</button>
                 </div>
                 <!-- Projects -->
                 <div class="row gx-0" id="portfolio-boxes">
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://chaeyeonku.github.io/puzzle-sort-visualized/">
+                        <a class="portfolio-item" href="https://chaeyeonku.github.io/puzzle-sort-visualized/" target="_blank">
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">Jigsaw Puzzle Solver</div>
@@ -202,7 +204,7 @@
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!" onclick="showPortfolioVideo('expense')">
+                        <a class="portfolio-item" onclick="showPortfolioVideo('expense')">
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">Expense Tracker</div>
@@ -213,7 +215,7 @@
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="https://chaeyeonku.github.io/Creative-Coding-Snowflakes/">
+                        <a class="portfolio-item" href="https://chaeyeonku.github.io/Creative-Coding-Snowflakes/" target="_blank">
                             <div class="caption">
                                 <div class="caption-content">
                                     <div class="h2">JS Interactive Animation: Snowflakes</div>
@@ -224,9 +226,14 @@
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <a class="portfolio-item" href="#!">
+                        <a class="portfolio-item" onmouseover="showCardGameVideoOptions()" onmouseleave="hideCardGameVideoOptions()">
                             <div class="caption">
                                 <div class="caption-content">
+                                    <div class="video-game-options" id="video-game-options">
+                                        <button class="btn btn-dark btn-xl" id="btn-beginner" onclick="showPortfolioVideo('cardBeg')">Beginner</button>
+                                        <button class="btn btn-dark btn-xl" id="btn-advanced" onclick="showPortfolioVideo('cardAdv')">Advanced</button>
+                                        
+                                    </div>
                                     <div class="h2">Card Matching Game</div>
                                     <p class="mb-0">A puzzle game based off a Korean Game Show "The Genuis"</p>
                                 </div>

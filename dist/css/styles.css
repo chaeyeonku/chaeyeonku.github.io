@@ -11603,8 +11603,19 @@ footer.footer .social-link:hover {
 
 .portfolio-videos {
   display: none;
+  justify-content: center;
+
 }
 
 .portolio-videos video {
+  display: none;
+}
+
+.portfolio-videos button {
+  width: 10%;
+  height: 5%;
+}
+
+.video-game-options {
   display: none;
 }

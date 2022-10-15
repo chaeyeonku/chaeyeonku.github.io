@@ -80,23 +80,46 @@ function fadeIn(el, display) {
 };
 
 // my variables
+
+// videos
 var expenseVideo = document.getElementById('expense-video');
+var cardBegVideo = document.getElementById('cardgame-video-beg');
+var cardAdvVideo = document.getElementById('cardgame-video-adv');
+
+var videoDict = {
+    "expense": expenseVideo,
+    "cardBeg": cardBegVideo,
+    "cardAdv": cardAdvVideo
+}
+
 var videoDiv = document.getElementById('portfolio-videos');
 var portfolioBoxes = document.getElementById('portfolio-boxes');
+var cardVideoOptions = document.getElementById('video-game-options');
 
 // my functions
 function showPortfolioVideo(title) {
-    videoDiv.style.display = "block";
+    videoDiv.style.display = "flex";
     portfolioBoxes.style.display = "none";
 
-    // console.log(title);
-    if (title === "expense") {
-        expenseVideo.style.display = "block";
+    // only display the selected video and hide others
+    for (let key in videoDict) {
+        if (key === title) {
+            videoDict[key].style.display = "block";
+        } else {
+            videoDict[key].style.display = "none";
+        }
     }
 }
 
 function hidePortfolioVideo() {
-    expenseVideo.style.display = "none";
     videoDiv.style.display = "none";
     portfolioBoxes.style.display = "flex";
+}
+
+function showCardGameVideoOptions() {
+    cardVideoOptions.style.display = "flex"
+}
+
+function hideCardGameVideoOptions() {
+    cardVideoOptions.style.display = "none"
 }
