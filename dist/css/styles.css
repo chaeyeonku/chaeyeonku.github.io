@@ -11586,7 +11586,7 @@ footer.footer .social-link:hover {
   text-decoration: none;
   height: 2rem;
   width: 2rem;
-  line-height: 2rem;
+  line-height: 1.8rem;
   font-size: 1rem;
   background-color: #1D809F;
   transition: background-color 0.15s ease-in-out;
@@ -11618,4 +11618,10 @@ footer.footer .social-link:hover {
 
 .video-game-options {
   display: none;
+}
+
+.img-attr {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
